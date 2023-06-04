@@ -1,12 +1,6 @@
 export class Stream {
-    constructor(categorias) {
+    constructor(titulo, categorias) {
+        this.titulo = titulo;
         this.categorias = categorias;
-    }
-}
-export class Categoria {
-    constructor(nombre, descripcion, imagen) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagen = imagen;
     }
 }

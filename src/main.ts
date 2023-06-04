@@ -1,48 +1,61 @@
-import { Plataforma } from "./plataforma/plataforma.js";
-import { Canal } from "./canal/canal.js";
-import { Streamer } from "./streamer/streamer.js";
-import { Stream, Categoria } from "./stream/stream.js";
+import { App } from "./app/app.js";
 
-const plataforma = new Plataforma(
-  "Tiwtch",
-  "URL_Logo",
-  "Twitch es una plataforma estadounidense perteneciente a la empresa Amazon, Inc., que permite realizar transmisiones en vivo.",
-  "Twitch Interactive"
+// Crear una instancia de la aplicación
+const app = new App();
+
+// Agregar plataformas
+app.agregarPlataforma(
+  "Twitch",
+  "twitch_logo.png",
+  "Plataforma de streaming enfocada en videojuegos",
+  "Amazon"
+);
+app.agregarPlataforma(
+  "YouTube Live",
+  "youtube_logo.png",
+  "Plataforma de streaming con contenido variado",
+  "Google"
 );
 
-const canal = new Canal(
-  "RubiusOMG",
-  "URL_banner",
-  "Rubén Doblas",
-  "Corazon puro, acciones dedsastrozas"
-);
+// Agregar canales
+app.agregarCanal("Twitch", "Canal1", "banner1.png", "Streamer1", "Canal de videojuegos");
+app.agregarCanal("Twitch", "Canal2", "banner2.png", "Streamer2", "Canal de música");
+app.agregarCanal("YouTube Live", "Canal3", "banner3.png", "Streamer3", "Canal de entretenimiento");
 
-const streamer = new Streamer(  
-  "Rubius",
-  "Rubén Doblas Gundersen, mejor conocido como el Rubius, es un youtuber, streamer y celebridad de internet hispano-noruego, ​reconocido por sus vídeos de entretenimiento basados en gameplays, sketches, parodias, montajes y videoblogs",
-  ["Twitch", "Bumble"]
-);
+// Agregar streamers
+app.agregarStreamer("Twitch", "Canal1", "Streamer1", "Streamer de videojuegos", ["Twitter"]);
+app.agregarStreamer("Twitch", "Canal1", "Streamer2", "Streamer de videojuegos", ["Twitter"]);
+app.agregarStreamer("Twitch", "Canal2", "Streamer3", "Streamer de música", ["Instagram"]);
+app.agregarStreamer("YouTube Live", "Canal3", "Streamer4", "Streamer de entretenimiento", ["Facebook"]);
 
-const categoria1 = new Categoria(
-  "Juegos",
-  "Streams en vivo de todos tus juegos favoritos, desde shooters hasta plataformas y mucho más",
-  "URL_categoria1"
-);
+// Agregar streams
+app.agregarStream("Streamer1", "Videojuegos", "Stream de Fortnite");
+app.agregarStream("Streamer1", "Videojuegos", "Stream de Valorant");
+app.agregarStream("Streamer2", "Videojuegos", "Stream de Minecraft");
+app.agregarStream("Streamer3", "Música", "Stream de concierto en vivo");
+app.agregarStream("Streamer4", "Entretenimiento", "Stream de sketches cómicos");
 
-const categoria2 = new Categoria(
-  "Nombre de la categoría 2",
-  "Descripción de la categoría 2",
-  "URL de la imagen 2"
-);
+// Mostrar listado de plataformas
+app.mostrarListadoPlataformas();
 
-const stream = new Stream([categoria1, categoria2]);
+// Mostrar detalle de una plataforma
+app.mostrarDetallePlataforma("Twitch");
 
-plataforma.agregarCanal(canal);
-canal.agregarStreamer(streamer);
-streamer.agregarCanal(canal);
-streamer.agregarStream(stream);
+// Mostrar listado de canales de una plataforma
+app.mostrarListadoCanales("Twitch");
 
-console.log(plataforma.mostrarCanales());
-console.log(canal.mostrarStreamers());
-console.log(streamer.mostrarCanales());
-console.log(streamer.mostrarStreams());
+// Mostrar detalle de un canal
+app.mostrarDetalleCanal("Twitch", "Canal1");
+
+// Mostrar listado de streamers
+app.mostrarListadoStreamers();
+
+// Mostrar detalle de un streamer
+app.mostrarDetalleStreamer("Streamer1");
+
+// Mostrar listado de streams
+app.mostrarListadoStreams();
+
+// Mostrar detalle de un stream
+app.mostrarDetalleStream("Streamer1", "Videojuegos");
+

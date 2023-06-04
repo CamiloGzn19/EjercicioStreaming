@@ -1,11 +1,9 @@
 export class Stream {
-  constructor(public categorias: Categoria[]) {}
-}
+  public titulo: string;
+  public categorias: string[];
 
-export class Categoria {
-  constructor(
-    public nombre: string,
-    public descripcion: string,
-    public imagen: string
-  ) {}
+  constructor(titulo: string, categorias: string[]) {
+    this.titulo = titulo;
+    this.categorias = categorias;
+  }
 }
